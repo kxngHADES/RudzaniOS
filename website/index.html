@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RudzaniOS - The Minimalist Hacker OS</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <div id="particles-js"></div>
+    
+    <nav class="navbar">
+        <div class="logo">
+            <i data-lucide="terminal"></i>
+            <span>RudzaniOS</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#features">Features</a></li>
+            <li><a href="#downloads">Downloads</a></li>
+            <li><a href="https://github.com/kxngHADES/RudzaniOS">GitHub</a></li>
+        </ul>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-content">
+            <div class="badge">v0.1-alpha is out now!</div>
+            <h1>The Minimalist <br><span class="highlight">Learner OS</span></h1>
+            <p>A custom 32-bit protected-mode operating system built entirely from scratch. Lightweight, fast, and engineered for those who seek to understand the very foundations of computing.</p>
+            <div class="hero-buttons">
+                <a href="#downloads" class="btn btn-primary">
+                    <i data-lucide="download"></i> Download OS
+                </a>
+                <a href="https://github.com/kxngHADES/RudzaniOS" class="btn btn-secondary">
+                    <i data-lucide="github"></i> View Source
+                </a>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <div class="terminal-window">
+                <div class="terminal-header">
+                    <span class="btn-close"></span>
+                    <span class="btn-min"></span>
+                    <span class="btn-max"></span>
+                    <div class="terminal-title">RudzaniOS Terminal</div>
+                </div>
+                <div class="terminal-body" id="typewriter-demo">
+                    <!-- Typed text is injected here by JS -->
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section id="features" class="features">
+        <h2>System Architecture</h2>
+        <div class="grid">
+            <div class="card">
+                <div class="icon-wrapper"><i data-lucide="cpu"></i></div>
+                <h3>32-bit Protected Mode</h3>
+                <p>Features a custom bootloader translating 16-bit real mode into full 32-bit protected mode utilizing LBA Extended Disk reads.</p>
+            </div>
+            <div class="card">
+                <div class="icon-wrapper"><i data-lucide="folder-tree"></i></div>
+                <h3>Virtual Filesystem</h3>
+                <p>Fully functional VFS mounted over an initial Ramdisk (initrd) with dynamic slot reuse and full directory hierarchy parsing.</p>
+            </div>
+            <div class="card">
+                <div class="icon-wrapper"><i data-lucide="terminal-square"></i></div>
+                <h3>Interactive Shell</h3>
+                <p>Over 20 built-in UNIX-like commands including <code>cd</code>, <code>ls</code>, <code>mkdir</code>, <code>cp</code>, <code>rm</code>, and <code>.sh</code> script execution.</p>
+            </div>
+            <div class="card">
+                <div class="icon-wrapper"><i data-lucide="edit-3"></i></div>
+                <h3>Nda Editor</h3>
+                <p>A custom text editor built into the OS. Buffer-based typing and VFS integration for fast in-OS software adjustments.</p>
+            </div>
+            <div class="card">
+                <div class="icon-wrapper"><i data-lucide="calculator"></i></div>
+                <h3>Math Engine</h3>
+                <p>A built-in recursive descent parser capable of advanced trigonometry (sin, cos), complex arithmetic, and PEMDAS equations.</p>
+            </div>
+            <div class="card">
+                <div class="icon-wrapper"><i data-lucide="gamepad-2"></i></div>
+                <h3>Arcade Machine</h3>
+                <p>Type <code>lets_play</code> to launch the built-in terminal arcade featuring full implementations of Snake, Pong, and Tetris.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="downloads" class="downloads">
+        <h2>Releases</h2>
+        <p class="subtitle">Download the raw disk images for emulation or hardware flashing.</p>
+        
+        <div class="download-grid">
+            <!-- VDI Card -->
+            <div class="download-card">
+                <div class="card-header">
+                    <i data-lucide="box"></i>
+                    <h3>VirtualBox Image</h3>
+                    <span class="version-tag">v0.1-alpha</span>
+                </div>
+                <p>Pre-formatted VirtualBox Disk Image (.vdi). Easiest way to test the OS if you already use Oracle VirtualBox.</p>
+                
+                <div class="hash-box">
+                    <span>SHA256:</span>
+                    <code id="hash-vdi">6b210a5e5888946652279e68d33fcbb43d1d8b076ed160c937c55f78732e592b</code>
+                    <button class="btn-copy" data-target="hash-vdi" aria-label="Copy Hash">
+                        <i data-lucide="copy"></i>
+                    </button>
+                </div>
+                
+                <a href="https://github.com/kxngHADES/RudzaniOS/releases/download/v0.1-alpha/os.vdi" class="btn btn-download">
+                    Download .VDI (1 MB)
+                </a>
+            </div>
+
+            <!-- ISO Card -->
+            <div class="download-card">
+                <div class="card-header">
+                    <i data-lucide="disc"></i>
+                    <h3>Raw Disk Image</h3>
+                    <span class="version-tag">v0.1-alpha</span>
+                </div>
+                <p>The raw <code>.iso</code> flat binary image. Use this for QEMU, Bochs, or writing directly to a floppy/USB disk block using <code>dd</code>.</p>
+                
+                <div class="hash-box">
+                    <span>SHA256:</span>
+                    <code id="hash-iso">a860ab72acc672edb875a87fc53069b8094bc43fee35e3065142a4edcf29d16c</code>
+                    <button class="btn-copy" data-target="hash-iso" aria-label="Copy Hash">
+                        <i data-lucide="copy"></i>
+                    </button>
+                </div>
+                
+                <a href="https://github.com/kxngHADES/RudzaniOS/releases/download/v0.1-alpha/os.iso" class="btn btn-download">
+                    Download .ISO (1 MB)
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <p>Created by <strong>Ndaedzo Rudzani Brandon Mudau</strong>.</p>
+            <p class="disclaimer">For me to learn developing OS and experimental use.<br/>Do as you please</p>
+        </div>
+    </footer>
+
+    <!-- Particles JS -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="script.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
