@@ -1,0 +1,17 @@
+# System-reserved files blocking Windows Git
+nul
+NUL
+
+# OS Build artifacts
+*.o
+*.bin
+*.img
+*.iso
+*.sys
+build/
+bin/
+isodir/
+
+# Metadata
+.DS_Store
+Thumbs.db
